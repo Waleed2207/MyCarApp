@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
+import translate from '../../../locals/index';
 
 export const Inputs = () => {
   const [text, onChangeText] = React.useState('');
@@ -7,9 +8,7 @@ export const Inputs = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.timerText}>
-        {'להתחברות לאפליקציית טיימר אנא הזינו את'}
-      </Text>
+      <Text style={styles.timerText}>{translate('enterSubtitle')}</Text>
       <Text style={styles.timerText}>{'מספר הטלפון והמייל שלכם'}</Text>
       <TextInput
         placeholder="הקלד אימייל"
