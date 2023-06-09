@@ -16,4 +16,6 @@ void i18next.use(initReactI18next).init({
   },
 });
 
-export default i18next.t;
+export default i18next;
+
+export const translate = i18next.t;

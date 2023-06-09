@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
-import translate from '../../../locals/index';
+import {translate} from '../../../locals/index';
 
 export const Inputs = () => {
   const [text, onChangeText] = React.useState('');

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import BaseView, {BodyBaseView} from '../../uiKit/BaseView';
+import Header from '../../uiKit/Header';
 import {Buttons} from './components/Buttons';
-
 const TimerScreen = () => {
   const [isOn, setIsOn] = useState(true);
   const [counter, setCounter] = useState(0);
@@ -15,14 +16,17 @@ const TimerScreen = () => {
   }, [counter, isOn]);
 
   return (
-    <>
-      <View style={styles.timerContainer}>
-        <View style={styles.timerDisplay}>
-          <Text style={styles.timerText}>{counter}</Text>
+    <BaseView>
+      <Header />
+      <BodyBaseView style={{alignItems: 'center'}}>
+        <View style={styles.timerContainer}>
+          <View style={styles.timerDisplay}>
+            <Text style={styles.timerText}>{counter}</Text>
+          </View>
         </View>
-      </View>
-      <Buttons isOn={isOn} setIsOn={setIsOn} onReset={() => setCounter(0)} />
-    </>
+        <Buttons isOn={isOn} setIsOn={setIsOn} onReset={() => setCounter(0)} />
+      </BodyBaseView>
+    </BaseView>
   );
 };
 
@@ -32,7 +36,7 @@ const windowWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   timerContainer: {
-    flex: 3,
+    flex: 6,
     justifyContent: 'center',
   },
   timerText: {

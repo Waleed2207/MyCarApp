@@ -25,7 +25,8 @@ const buttonTextsStyles = props =>
 
 const styles = StyleSheet.create({
   buttonsContainer: {
-    flex: 1,
+    flex: 2,
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
