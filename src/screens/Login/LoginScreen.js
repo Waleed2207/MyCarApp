@@ -26,7 +26,7 @@ const LoginScreen = ({navigation}) => {
       </Modal>
       <BodyBaseView>
         <Inputs />
-        {/* <Buttons onPressLogin={onPressLogin} /> */}
+        <Buttons onPressLogin={onPressLogin} />
       </BodyBaseView>
     </BaseView>
   );
