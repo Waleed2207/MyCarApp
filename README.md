@@ -2,4 +2,4 @@
 
 ShenkarCollege React Native course project
 
-##By Hen Aharon and Shankar College
+## By Hen Aharon and Shankar College
