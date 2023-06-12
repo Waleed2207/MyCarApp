@@ -6,7 +6,7 @@ export const Buttons = ({onPressLogin}) => {
   let url = 'mailto:support@anm.software';
 
   const sendAnEmail = () => {
-    // Linking.openURL(url);
+    Linking.openURL(url);
     Crashes.generateTestCrash();
     // throw new Error('crash test from contact button');
   };
