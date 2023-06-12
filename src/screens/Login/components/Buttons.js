@@ -1,7 +1,15 @@
+import React from 'react';
 import {Image, Linking, Pressable, StyleSheet, Text, View} from 'react-native';
+import Crashes from 'appcenter-crashes';
 import {loginIcons} from '../../../uiKit/icons';
 export const Buttons = ({onPressLogin}) => {
-  let url = `mailto:support@anm.software`;
+  let url = 'mailto:support@anm.software';
+
+  const sendAnEmail = () => {
+    // Linking.openURL(url);
+    Crashes.generateTestCrash();
+    // throw new Error('crash test from contact button');
+  };
 
   return (
     <View style={styles.buttonsContainer}>
@@ -10,7 +18,7 @@ export const Buttons = ({onPressLogin}) => {
       </Pressable>
       <View style={styles.needHelpContainer}>
         <Text>{'צריך עזרה?'}</Text>
-        <Pressable onPress={() => Linking.openURL(url)}>
+        <Pressable onPress={sendAnEmail}>
           <Text style={styles.contactLink}>{'יצירת קשר עם התמיכה'}</Text>
         </Pressable>
       </View>
