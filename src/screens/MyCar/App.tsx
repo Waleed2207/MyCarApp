@@ -33,7 +33,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
  
-
+// old branch
 const Drawer = createDrawerNavigator();
 function App(): JSX.Element {
   return (
@@ -41,7 +41,6 @@ function App(): JSX.Element {
       <Drawer.Navigator initialRouteName="Home" screenOptions={{drawerPosition: 'right'}} id="RightDrawer">
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-        <Drawer.Screen name="ChangeHere" component={ChangeHere} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
