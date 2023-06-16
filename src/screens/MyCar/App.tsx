@@ -41,6 +41,7 @@ function App(): JSX.Element {
       <Drawer.Navigator initialRouteName="Home" screenOptions={{drawerPosition: 'right'}} id="RightDrawer">
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="ChangeHere" component={ChangeHere} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
