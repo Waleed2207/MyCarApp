@@ -4,27 +4,25 @@
  *
  * @format
  */
-import * as React from 'react';
 import type {PropsWithChildren} from 'react';
+import * as React from 'react';
 import {
   Dimensions,
   Image,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   TextInput,
-  useColorScheme,
-  Pressable,
   View,
+  useColorScheme,
 } from 'react-native';
 //import LinearGradient from 'react-native-linear-gradient';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
 //import Ionicons from 'react-native-vector-icons/Ionicons';
-import HomeScreen from './HomeScreen.js';
-import NotificationsScreen from './NotificationsScreen.js';
 import {
   Colors,
   DebugInstructions,
@@ -32,21 +30,25 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
- 
+import {AccidentReport} from '../AccidentReport/index.js';
+import HomeScreen from './HomeScreen.js';
+import NotificationsScreen from './NotificationsScreen.js';
 
 const Drawer = createDrawerNavigator();
 function App(): JSX.Element {
   return (
-    <NavigationContainer >
-      <Drawer.Navigator initialRouteName="Home" screenOptions={{drawerPosition: 'right'}} id="RightDrawer">
+    <NavigationContainer>
+      <Drawer.Navigator
+        initialRouteName="Home"
+        screenOptions={{drawerPosition: 'right'}}
+        id="RightDrawer">
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="AccidentReport" component={AccidentReport} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
 }
-
-
 
 const windowsHight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
@@ -76,7 +78,6 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     backgroundColor: 'white',
     justifyContent: 'flex-end',
-
   },
 });
 
