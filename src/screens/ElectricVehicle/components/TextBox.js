@@ -1,11 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const TextBox = ({ children, borderText }) => {
+const TextBox = ({ children, borderText, isSummaryPage }) => {
+  const containerStyle = isSummaryPage ? styles.summaryContainer : styles.textBox;
+  const textContainerStyle = isSummaryPage ? styles.summaryTextContainer : styles.borderTextContainer;
+
   return (
-    <View style={styles.textBox}>
-      <Text style={styles.borderText}>{borderText}</Text>
-      <Text>{children}</Text>
+    <View style={containerStyle}>
+      {!isSummaryPage && <Text style={styles.borderText}>{borderText}</Text>}
+      <View style={textContainerStyle}>
+        <Text>{children}</Text>
+      </View>
     </View>
   );
 };
@@ -21,6 +26,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 16,
   },
+  summaryContainer: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    marginTop: 8,
+  },
   borderText: {
     position: 'absolute',
     top: -10,
@@ -29,6 +40,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     fontSize: 12,
     fontWeight: 'bold',
+  },
+  summaryTextContainer: {
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    marginTop: 4,
+    marginRight: 16,
   },
 });
 
