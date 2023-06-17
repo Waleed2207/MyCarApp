@@ -6,7 +6,7 @@ const charger = require('../assets/icons/charger.png');
 const ChargerImage = () => {
   return (
     <View style={styles.container}>
-      <Image source={charger} style={styles.image} resizeMode="contain" />
+      <Image source={charger} style={styles.image} />
     </View>
   );
 };
@@ -14,12 +14,11 @@ const ChargerImage = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    paddingTop: 16,
     paddingBottom: 8,
   },
   image: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
   },
 });
 
