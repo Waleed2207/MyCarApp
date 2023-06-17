@@ -1,9 +1,11 @@
 import {Text, View} from 'react-native';
+import AccidentReportScreen from './components/AccidentReportScreen';
+
 
 export function AccidentReport() {
   return (
-    <View>
-      <Text>AccidentReport</Text>
-    </View>
+
+    <AccidentReportScreen></AccidentReportScreen>
+
   );
 }
