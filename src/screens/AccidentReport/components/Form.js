@@ -45,7 +45,6 @@ useEffect(() => {
 
     return (
         <ScrollView>
-
             <FormWizard>
                 <WizardSection>
                     <View style={styles.wrapper}>
@@ -87,7 +86,9 @@ useEffect(() => {
                 </WizardSection>
                 <WizardSection>
                     <View style={styles.wrapper}>
-                        <Text> Second Page</Text>
+                        <Text style={styles.header}>מי נהג ברכב בזמן האירוע? </Text>
+                        <RadioButtons leftText={'נהג/ת אחר/ת'} rightText={'אני נהגתי'}></RadioButtons>
+                        <Text style={styles.header}> פרטי הנהג/ת</Text>
                     </View>
                 </WizardSection>
                 <WizardSection>

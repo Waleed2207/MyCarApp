@@ -1,4 +1,4 @@
-import { AccidentReport } from '../screens/AccidentReport';
+
 
 const loginIcons = {
   loginButtonArrow: require('../assets/icons/login-button-arrow.png'),

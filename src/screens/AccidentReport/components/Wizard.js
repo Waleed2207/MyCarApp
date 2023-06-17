@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Image, Pressable } from 'react-native';
+import { accidentReport, loginIcons} from '../../../uiKit/icons';
 
 const WizardSection = ({ children }) => {
   return <View style={styles.sectionContainer}>{children}</View>;
@@ -24,8 +25,14 @@ const FormWizard = ({ children }) => {
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-      <Button title="Next" onPress={goToNextPage} disabled={currentPage > (children.length -1) && true} />
-          <View style={{flexDirection:'row-reverse'}}> 
+      <Pressable style={styles.button} title="Next" onPress={goToNextPage} disabled={currentPage > (children.length -1) && true}>
+            <Image source={loginIcons.loginButtonArrow}></Image>
+      </Pressable>
+      <View>
+          <Text style={{color:'white'}}>
+            title
+          </Text>   
+          <View style={{flexDirection:'row-reverse', gap:5}}> 
             {
                 children.map((child, index) => {
                     return(
@@ -34,8 +41,12 @@ const FormWizard = ({ children }) => {
             })
         }
           </View>
+           
+        </View>
           
-          <Button style={styles.button} title="Previous" onPress={goToPreviousPage} disabled={currentPage < 1 && true} />
+          <Pressable style={styles.button} title="Previous" onPress={goToPreviousPage} disabled={currentPage < 1 && true} >
+                <Image style={styles.rightArrow} source={loginIcons.loginButtonArrow}></Image>
+          </Pressable>
       </View>
       <View style={styles.sectionContainer}>{children[currentPage]}</View>
     </View>
@@ -47,26 +58,41 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    
+    backgroundColor:'white'
   },
   formContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth:10,
+    backgroundColor:'red'
   },
   sectionContainer: {
     marginBottom: 16,
     width: '100%',
+    backgroundColor: 'white',
+    borderRadius:30,
+    padding:10,
+    paddingTop:20
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
+    paddingBottom:50,
+    backgroundColor:'black',
+    marginBottom:-30,
+    padding:20,
    
   },
   button:{
-    borderWidth:1,
-    backgroundColor:'black'
+    backgroundColor:'lightgray',
+    padding:5,
+    borderRadius:15,
+  },
+  rightArrow:{
+    transform: [{ rotate: '180deg'}]
   }
 });
 
