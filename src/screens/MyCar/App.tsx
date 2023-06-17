@@ -25,6 +25,7 @@ import { NavigationContainer } from '@react-navigation/native';
 //import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './HomeScreen.js';
 import NotificationsScreen from './NotificationsScreen.js';
+import DriverProfileScreen from './DriverProfileScreen.js';
 import {
   Colors,
   DebugInstructions,
@@ -41,6 +42,7 @@ function App(): JSX.Element {
       <Drawer.Navigator initialRouteName="Home" screenOptions={{drawerPosition: 'right'}} id="RightDrawer">
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="DriverProfileScreen" component={DriverProfileScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
