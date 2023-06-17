@@ -1,6 +1,7 @@
 import {StyleSheet, View, Text, TextInput, Dimensions, ScrollView, Pressable} from 'react-native';
 import {useState , useEffect} from 'react'
 import  RadioButtons from './RadioButtons';
+import {FormWizard, FormSection, WizardSection} from './Wizard';
 export default function Form() {
   
 const [formData, setFormData] = useState(null)
@@ -44,43 +45,74 @@ useEffect(() => {
 
     return (
         <ScrollView>
-           <View style={styles.wrapper}>
 
-           <Text style={styles.header}>פרטים כלליים</Text>
-            <View style={styles.inputWrppaer}>
-                <TextInput onChangeText={(date) => setDate(date) } style={styles.Input} placeholder="תאריך האירוע"></TextInput>
-                <TextInput onChangeText={(time) => setTime(time) }  style={styles.Input} placeholder="שעת האירוע"></TextInput>
-            </View>
-            <View style={styles.inputWrppaer}>
-                <TextInput onChangeText={(location) => setLocation(location) } style={styles.Input} placeholder="עיר / כביש מרכזי"></TextInput>
-            </View>
-            <View style={styles.inputWrppaer}>
-                <TextInput style={[styles.Input]} placeholder="מ. בית"  ></TextInput>
-                <TextInput  style={[styles.Input, {flex:3}]} placeholder="כתובת"  ></TextInput>  
-            </View>
-            <View style={styles.textAreaContainer}>
-                <Text style={styles.textAreaLabel}> פרטי האירוע</Text>
-                <TextInput style={styles.textArea} multiline={true}> </TextInput>
-            </View>
-           </View>
-            
-            
-            <View style={styles.wrapper}>
-                <Text style={styles.header}>הוספת תמונה מהאירוע</Text>
-                <View style={styles.photoGalleryPlaceholder}></View>
-            </View>
+            <FormWizard>
+                <WizardSection>
+                    <View style={styles.wrapper}>
 
-          <View style={styles.wrapper}>
-                <Text style={styles.header}> האם הייתה מעורבות משטרה באירוע?</Text>
-                <RadioButtons rightText={'כן, היתה'} leftText={'לא היתה'} rightPress={setPoliceTrue} leftPress={setPoliceFalse}></RadioButtons>
-                <Text style={styles.header}>פרטי המשטרה</Text>
-                <View style={styles.inputWrppaer}>
-                        <TextInput style={styles.Input} placeholder="תחנת משטרה"></TextInput>
+                        <Text style={styles.header}>פרטים כלליים</Text>
+                        <View style={styles.inputWrppaer}>
+                            <TextInput onChangeText={(date) => setDate(date) } style={styles.Input} placeholder="תאריך האירוע"></TextInput>
+                            <TextInput onChangeText={(time) => setTime(time) }  style={styles.Input} placeholder="שעת האירוע"></TextInput>
+                         </View>
+                        <View style={styles.inputWrppaer}>
+                            <TextInput onChangeText={(location) => setLocation(location) } style={styles.Input} placeholder="עיר / כביש מרכזי"></TextInput>
+                        </View>
+                        <View style={styles.inputWrppaer}>
+                             <TextInput style={[styles.Input]} placeholder="מ. בית"  ></TextInput>
+                            <TextInput  style={[styles.Input, {flex:3}]} placeholder="כתובת"  ></TextInput>  
+                        </View>
+                        <View style={styles.textAreaContainer}>
+                            <Text style={styles.textAreaLabel}> פרטי האירוע</Text>
+                            <TextInput style={styles.textArea} multiline={true}> </TextInput>
+                        </View>
+                    </View>
+                    <View style={styles.wrapper}>
+                        <Text style={styles.header}>הוספת תמונה מהאירוע</Text>
+                        <View style={styles.photoGalleryPlaceholder}></View>
+                    </View>
+
+                    <View style={styles.wrapper}>
+                            <Text style={styles.header}> האם הייתה מעורבות משטרה באירוע?</Text>
+                            <RadioButtons rightText={'כן, היתה'} leftText={'לא היתה'} rightPress={setPoliceTrue} leftPress={setPoliceFalse}></RadioButtons>
+                            <Text style={styles.header}>פרטי המשטרה</Text>
+                             <View style={styles.inputWrppaer}>
+                                <TextInput style={styles.Input} placeholder="תחנת משטרה"></TextInput>
+                            </View>
+                        <View style={styles.inputWrppaer}>
+                            <TextInput style={styles.Input} placeholder="שם השוטר"></TextInput>
+                         </View>
+                    </View>
+
+                </WizardSection>
+                <WizardSection>
+                    <View style={styles.wrapper}>
+                        <Text> Second Page</Text>
+                    </View>
+                </WizardSection>
+                <WizardSection>
+                    <View style={styles.wrapper}>
+                        <Text> Third Page</Text>
+                    </View>
+                </WizardSection>
+                <WizardSection>
+                    <View style={styles.wrapper}>
+                    <Text> Fourth Page</Text>
                 </View>
-                <View style={styles.inputWrppaer}>
-                        <TextInput style={styles.Input} placeholder="שם השוטר"></TextInput>
-                </View>
-          </View>
+                </WizardSection>
+                <WizardSection>
+                    <View style={styles.wrapper}>
+                         <Text> Fifth Page</Text>
+                    </View>
+                </WizardSection>
+
+            </FormWizard>
+          
+
+            
+       
+
+          
 
         </ScrollView>
     )
