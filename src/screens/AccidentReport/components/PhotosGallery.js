@@ -41,7 +41,6 @@ export function PhotosGallery() {
 const styles = StyleSheet.create({
   imagesContainer: {
     flex: 1,
-    padding: 20,
     flexDirection: 'row',
     overflow: 'scroll',
     gap: 5,
