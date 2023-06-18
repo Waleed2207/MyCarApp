@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import ChargerImage from '../components/ChargerImage';
 import TextBox from '../components/TextBox';
 
 const NonSummaryPage = () => {
+
+  const [images, setImages] = useState([]);
+
+
+  const onPlaceholderClick = () => {
+    const image = 'test';
+    setImages(prevImages => [...images, image]);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
@@ -13,16 +23,25 @@ const NonSummaryPage = () => {
         <View style={styles.textContainer}>
           <Text style={styles.headline}>פרטים</Text>
           <TextBox borderText="תיאור / הערות" isNonSummary={true}>
-            <Text>יש בעיה עם עמדת טעינה מס 3. כשמנסים להטעין העמדה לא מתחילה להטעין ורושמת שדרוש טיפול</Text>
+            <Text style={{ color: 'black' }}>יש בעיה עם עמדת טעינה מס 3. כשמנסים להטעין העמדה לא מתחילה להטעין ורושמת שדרוש טיפול</Text>
           </TextBox>
           <Text style={styles.headline}>הוספת תמונות</Text>
           <View style={styles.imageRow}>
-            <Image source={require('../assets/icons/leftArrow.png')} style={styles.image} />
-            <Image source={require('../assets/icons/leftArrow.png')} style={styles.image} />
-            <Image source={require('../assets/icons/leftArrow.png')} style={styles.image} />
-          </View>
+              {images.map((image, idx) => {
+                return (
+                  <Image
+                    key={idx.toString()} 
+                    source={require('../assets/icons/placeHolder.png')}
+                    style={styles.image}
+                  />
+                );
+              })}
+              <TouchableOpacity onPress={onPlaceholderClick}>
+                <Image source={require('../assets/icons/placeHolder.png')} style={styles.image} />
+              </TouchableOpacity>
+            </View>
           <TextBox borderText="מיקום נוכחי / הנחיות הגעה">
-            <Text>עמדת הטענה בשער המערבי</Text>
+            <Text style={{ color: 'black' }}>עמדת הטענה בשער המערבי</Text>
           </TextBox>
         </View>
       </View>
@@ -34,19 +53,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30
   },
   contentContainer: {
     flex: 1,
-    flexDirection: 'row',
     paddingHorizontal: 16,
     paddingTop: 16,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   imageContainer: {
-    marginRight: 16,
+    height: '10%'
   },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
+    width: '100%'
   },
   headline: {
     fontSize: 18,
@@ -67,7 +90,9 @@ const styles = StyleSheet.create({
   imageRow: {
     flexDirection: 'row',
     marginTop: 16,
-    alignItems: 'center',
+    justifyContent: 'flex-end'
+
+
   },
   image: {
     width: 70,

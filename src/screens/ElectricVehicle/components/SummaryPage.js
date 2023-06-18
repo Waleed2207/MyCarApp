@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingTop: 16,
     paddingHorizontal: 16,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30
   },
   contentContainer: {
     flex: 1,

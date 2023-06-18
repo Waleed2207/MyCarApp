@@ -9,7 +9,7 @@ const TextBox = ({ children, borderText, isSummaryPage }) => {
     <View style={containerStyle}>
       {!isSummaryPage && <Text style={styles.borderText}>{borderText}</Text>}
       <View style={textContainerStyle}>
-        <Text>{children}</Text>
+        {children}
       </View>
     </View>
   );
@@ -47,6 +47,15 @@ const styles = StyleSheet.create({
     marginTop: 4,
     marginRight: 16,
   },
+  borderTextContainer: {
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    marginTop: 4,
+    marginRight: 16,
+    width: '100%',
+    height: '100%',
+    padding: '2%',
+  }
 });
 
 export default TextBox;
