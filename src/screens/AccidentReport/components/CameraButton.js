@@ -62,7 +62,7 @@ export function CameraButton({style, onAddImage}) {
           console.log('User tapped custom button: ', res.customButton);
           alert(res.customButton);
         } else {
-          if (res.assets[0].uri) {
+          if (res && res.assets && res.assets[0] && res.assets[0].uri) {
             onAddImage(res.assets[0].uri);
           }
         }
@@ -82,7 +82,7 @@ export function CameraButton({style, onAddImage}) {
         includeExtra,
       },
       res => {
-        if (res.assets[0].uri) {
+        if (res && res.assets && res.assets[0] && res.assets[0].uri) {
           onAddImage(res.assets[0].uri);
         }
       },
