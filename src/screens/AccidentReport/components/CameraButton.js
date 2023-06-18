@@ -16,10 +16,9 @@ import RadioButtons from './RadioButtons';
 const includeExtra = true;
 
 export function CameraButton({style, onAddImage}) {
-  const [response, setResponse] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const askPermission = useCallback(async (options, setResponse) => {
+  const askPermission = useCallback(async options => {
     const grantedcamera = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
       {
@@ -63,12 +62,9 @@ export function CameraButton({style, onAddImage}) {
           console.log('User tapped custom button: ', res.customButton);
           alert(res.customButton);
         } else {
-          // let source = res;
-          // var resourcePath1 = source.assets[0].uri;
-          const source = {uri: res.uri};
-          console.log('response', JSON.stringify(res));
-          onAddImage(res.assets[0].uri);
-          setResponse(res);
+          if (res.assets[0].uri) {
+            onAddImage(res.assets[0].uri);
+          }
         }
       });
     } else {
@@ -86,23 +82,21 @@ export function CameraButton({style, onAddImage}) {
         includeExtra,
       },
       res => {
-        console.log(res);
-        onAddImage(res.assets[0].uri);
+        if (res.assets[0].uri) {
+          onAddImage(res.assets[0].uri);
+        }
       },
     );
   });
 
   const uploadImageFromCamera = useCallback(async () => {
     setModalVisible(false);
-    askPermission(
-      {
-        saveToPhotos: true,
-        mediaType: 'photo',
-        includeBase64: false,
-        includeExtra,
-      },
-      setResponse,
-    );
+    askPermission({
+      saveToPhotos: true,
+      mediaType: 'photo',
+      includeBase64: false,
+      includeExtra,
+    });
   });
 
   return (
