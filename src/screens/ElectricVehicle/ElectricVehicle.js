@@ -5,7 +5,7 @@ import SummaryPage from './components/SummaryPage.js';
 import NonSummaryPage from './components/NonSummaryPage.js';
 
 const ElectricVehicle = () => {
-    const isSummary = true
+    const isSummary = false
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
       <HeaderScreen isSummary={isSummary} />
