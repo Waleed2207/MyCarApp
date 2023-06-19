@@ -10,7 +10,11 @@ import {
 } from 'react-native';
 import {PhotosGallery} from './PhotosGallery';
 import RadioButtons from './RadioButtons';
+import Signiture from './Signiture';
 import {FormSection, FormWizard, WizardSection} from './Wizard';
+import LinearGradient from 'react-native-linear-gradient';
+
+
 export default function Form() {
   const [formData, setFormData] = useState(null);
 
@@ -45,6 +49,16 @@ export default function Form() {
   const setPoliceFalse = () => {
     setFormData({...formData, police: false});
   };
+
+  const saveSigniture = data => {
+    setFormData({...formData, signiture: data});
+  };
+
+  const onSubmit = () => {
+    console.log(formData);
+    setFormData(null)
+
+  }
 
   useEffect(() => {
     console.log(formData);
@@ -135,7 +149,43 @@ export default function Form() {
         </WizardSection>
         <WizardSection>
           <View style={styles.wrapper}>
-            <Text> Fifth Page</Text>
+            
+
+            
+            <Text> שליחת דוח</Text>
+            <TextInput
+                style={styles.Input}
+                placeholder="כתובת המייל שלי">
+            </TextInput>
+            <Text> חתימה</Text>
+            <Text> אני מאשר שכל המידע שמסרתי הוא מדויק</Text>
+            <Signiture onOK={saveSigniture}></Signiture>
+            
+            <View style={styles.wrapper}> 
+            <View style={styles.wrapper}>
+            <Text>
+                     המלצה
+                </Text>
+                <Text>
+                    לאחר קבלת המסמך במייל אנחנו ממליצים להעביר אותו כפי שהוא לחברת הביטוח.
+                </Text>
+            </View>
+               
+                <LinearGradient
+                style={[styles.submit]}
+                colors={['#E60473', '#F05864']}
+                // top left is the start point, top right is the end point
+                start={{x: 0, y: 0}}
+                end={{x: 1, y: 0}}>
+                <Pressable onPress={onSubmit} >
+                    <Text style={styles.colorWhite}>
+                        אישור ושליחה
+                    </Text>
+                </Pressable>
+                </LinearGradient>
+            </View>
+
+        
           </View>
         </WizardSection>
       </FormWizard>
@@ -190,4 +240,17 @@ const styles = StyleSheet.create({
   header: {
     marginTop: 10,
   },
+  submit:{
+        borderRadius:50,
+        padding:15,
+        justifyContent:'center',
+        alignItems:'center', 
+        width:'100%',
+          
+  },
+  colorWhite:{
+    color:'white',
+    fontWeight:'bold',
+    fontSize:18,
+  }
 });
