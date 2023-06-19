@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     marginTop: 16,
-    alignItems: 'center',
+    alignItems: 'flex-end',
   },
   secondaryHeadlineRight: {
     fontSize: 18,
