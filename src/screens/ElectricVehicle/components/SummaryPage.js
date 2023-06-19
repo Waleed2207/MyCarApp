@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import TextBox from '../components/TextBox';
 import ChargerImage from '../components/ChargerImage';
+import ItemWithIcon from '../components/ItemWithIcon';
 
 const SummaryPage = () => {
   return (
@@ -25,6 +26,16 @@ const SummaryPage = () => {
             </View>
             <View style={styles.line} />
             <Text style={styles.thirdHeadlineRight}>פרטים כללים</Text>
+            <ItemWithIcon
+              imageSource={require('../assets/icons/car.png')}
+              text1="Tesla Model 3"
+              text2="23 441 23"
+            />
+            <ItemWithIcon
+              imageSource={require('../assets/icons/position.png')}
+              text1="מיקום"
+              text2="עמדת טעינה בשער המערבי"           
+            />
           </View>
         </View>
       </View>
@@ -110,7 +121,7 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'right',
     alignSelf: 'flex-end',
-    marginTop: 10
+    marginTop: 10,
   },
 });
 
