@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ActivityIndicator } fr
 import ChargerImage from '../components/ChargerImage';
 import TextBox from '../components/TextBox';
 
-const NonSummaryPage = ({ navigation }) => {
+const NonSummaryPage = () => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingIndex, setLoadingIndex] = useState(null);
@@ -11,10 +11,16 @@ const NonSummaryPage = ({ navigation }) => {
   const onImagePress = (index) => {
     setIsLoading(true);
     setLoadingIndex(index);
-    // Simulate a loading delay with setTimeout
     setTimeout(() => {
       setIsLoading(false);
-      setImages((prevImages) => [...prevImages, require('../assets/icons/placeHolder.png')]);
+      if (index < images.length) {
+        return;
+      }
+      if (index % 2 === 0) {
+        setImages((prevImages) => [...prevImages, require('../assets/icons/fuel.png')]);
+      } else {
+        setImages((prevImages) => [...prevImages, require('../assets/icons/fuel2.png')]);
+      }
     }, 3000);
   };
 

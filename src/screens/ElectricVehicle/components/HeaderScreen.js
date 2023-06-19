@@ -6,12 +6,14 @@ const rightImage = require('../assets/icons/rightArrow.png');
 
 const HeaderScreen = ({ isSummary }) => {
   const title = isSummary ? 'סיכום קריאה' : 'עמדת טעינה';
+  const renderLeftArrow = isSummary ? null : <Image source={leftImage} style={styles.leftImage} />;
+  const renderRightArrow = isSummary ? <Image source={rightImage} style={styles.rightImage} /> : <Image source={rightImage} style={styles.rightImage} />;
 
   return (
     <View style={styles.container}>
-      <Image source={leftImage} style={styles.leftImage} />
+      {renderLeftArrow}
       <Text style={styles.title}>{title}</Text>
-      <Image source={rightImage} style={styles.rightImage} />
+      {renderRightArrow}
     </View>
   );
 };
@@ -30,9 +32,11 @@ const styles = StyleSheet.create({
     height: 50,
   },
   title: {
+    flex: 1,
     color: '#ffffff',
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center', // Add this line to center-align the text horizontally
   },
   rightImage: {
     width: 50,

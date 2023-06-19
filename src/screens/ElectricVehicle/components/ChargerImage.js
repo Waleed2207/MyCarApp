@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingBottom: 8,
-    // height: '70%'
   },
   textContainer: {
     marginRight: 8,
