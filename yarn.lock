@@ -6306,6 +6306,11 @@ react-native-image-picker@^5.4.2:
   resolved "https://registry.npmjs.org/react-native-image-picker/-/react-native-image-picker-5.4.2.tgz"
   integrity sha512-C/k3cYAh8fBImoGEwmiChNwHx9fJGqAIu2E4BUJdI1XlL17tSYjfTDx/bsuF4amZwa7hxZdQnZmpk0EnwIEUaw==
 
+react-native-linear-gradient@^2.7.3:
+  version "2.7.3"
+  resolved "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.7.3.tgz"
+  integrity sha512-iyJszlZ1Ech2c+2qV+isMvvJKyoctR9ashDkhJg1/cuSF0vQaeLV1FAYTT3qW9doxChJGxVAFfYoxotH0yi3Iw==
+
 react-native-permissions@^3.8.0:
   version "3.8.0"
   resolved "https://registry.npmjs.org/react-native-permissions/-/react-native-permissions-3.8.0.tgz"
