@@ -1,6 +1,7 @@
 import {StyleSheet, View, Text, TextInput, Dimensions, ScrollView, Pressable} from 'react-native';
 import {useState , useEffect} from 'react'
 import  RadioButtons from './RadioButtons';
+import Signiture from './Signiture';
 import {FormWizard, FormSection, WizardSection} from './Wizard';
 export default function Form() {
   
@@ -84,6 +85,7 @@ useEffect(() => {
                     </View>
 
                 </WizardSection>
+
                 <WizardSection>
                     <View style={styles.wrapper}>
                         <Text style={styles.header}>מי נהג ברכב בזמן האירוע? </Text>
@@ -91,19 +93,23 @@ useEffect(() => {
                         <Text style={styles.header}> פרטי הנהג/ת</Text>
                     </View>
                 </WizardSection>
+
                 <WizardSection>
                     <View style={styles.wrapper}>
                         <Text> Third Page</Text>
                     </View>
                 </WizardSection>
+
                 <WizardSection>
                     <View style={styles.wrapper}>
                     <Text> Fourth Page</Text>
                 </View>
                 </WizardSection>
+
                 <WizardSection>
                     <View style={styles.wrapper}>
                          <Text> Fifth Page</Text>
+                         <Signiture></Signiture>
                     </View>
                 </WizardSection>
 
@@ -138,7 +144,10 @@ const styles = StyleSheet.create({
         flex:1,
         margin:3,
         height:60,
-        padding:5
+        padding:5,
+        borderWidth:1,
+        borderColor:'#E6E5E9',
+        color:'black',
 
     },
     textArea:{

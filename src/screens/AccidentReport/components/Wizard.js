@@ -15,8 +15,8 @@ const FormWizard = ({ children }) => {
   };
 
   const goToNextPage = () => {
-    console.log("got to next")
-    setCurrentPage(currentPage + 1);
+     const nextCounter = currentPage > (children.length -1) ? 0 : currentPage + 1;
+    setCurrentPage(nextCounter);
   };
  
 
