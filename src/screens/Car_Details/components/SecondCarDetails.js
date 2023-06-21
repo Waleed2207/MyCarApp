@@ -1,13 +1,20 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {CarDetailsIcons} from '../../../uiKit/icons';
+import {translate} from '../../../locals/index';
 
-export const CarDetails = () => {
+export const SecondCarDetails = () => {
   return (
     <View style={styles.DetailsContainer}>
+      <View>
+        <Text>{translate('licensedDriver')[0]}</Text>
         <View>
-            <Text></Text>
-            <Image source={CarDetailsIcons.CarIcon}/>
+          <Text>{translate('licensedDriver')[1]}</Text>
+          <Image/> {/* icon for aviv sharon */}
         </View>
+      </View>
+      <View>
+        {/* component fourViewsCarDetails, include car details */}
+      </View>
     </View>
   );
 };
