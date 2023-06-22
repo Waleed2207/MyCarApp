@@ -24,7 +24,7 @@ const DismissKeyboard = ({children}) => (
   </TouchableWithoutFeedback>
 );
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const [text, setText] = useState('כתובת מייל');
   const [number, setNumber] = useState('מספר טלפון');
 

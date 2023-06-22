@@ -10,14 +10,29 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import LoginScreen from '../Login';
+import DefaultModal from '../Modals/DefaultModal';
 
-const SliderWalkthrough = () => {
+const SliderWalkthrough = ({navigation}) => {
   const [hasCompletedWalkthrough, setHasCompletedWalkthrough] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [counter, setCounter] = useState(0);
+
+  // Set timer before displaying to Update version Modal
+  // const timer = setTimeout(() => {
+  //   if (isOn) setCounter(preState => preState + 1);
+  // }, 2000);
+
+  const hideModal = () => {
+    console.log('hide modal');
+    setModalVisible(false);
+    navigation.navigate('Login');
+  };
 
   // When user clicks on 'Let's Start' button
   const handleGetStarted = () => {
+    console.log('open modal');
     setHasCompletedWalkthrough(true);
+    setModalVisible(true);
   };
 
   const renderItem = ({item}) => {
@@ -40,24 +55,11 @@ const SliderWalkthrough = () => {
     <>
       {/* If user hasn't completed the walkthrough */}
       {hasCompletedWalkthrough ? (
-        // <SafeAreaView style={styles.container}>
-        //   <LinearGradient
-        //     colors={['#A9333A', '#E1578A', '#FAE98F']}
-        //     style={styles.gradient}
-        //     start={{x: 0, y: 0}}
-        //     end={{x: 1, y: 1}}>
-        //     <View style={styles.container}>
-        //       <Text style={styles.titleStyle}>
-        //         React Native App Intro Slider using AppIntroSlider
-        //       </Text>
-        //       <Text style={styles.paragraphStyle}>
-        //         This will be your screen when you click Skip from any slide or
-        //         Done button at last
-        //       </Text>
-        //     </View>
-        //   </LinearGradient>
-        // </SafeAreaView>
-        <LoginScreen />
+        // <DefaultModal
+        //   modalState={modalVisible}
+        //   buttonText={'עדכן גרסה'}
+        //   hideModal={hideModal}></DefaultModal>
+        <Button title="Login" onPress={hideModal} />
       ) : (
         <LinearGradient
           colors={['#A9333A', '#E1578A', '#FAE98F']}
@@ -125,7 +127,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'white',
     textAlign: 'center',
-    // paddingVertical: 30,
   },
   button: {
     position: 'absolute',
