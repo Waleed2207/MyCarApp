@@ -25,7 +25,8 @@ const SliderWalkthrough = ({navigation}) => {
   const hideModal = () => {
     console.log('hide modal');
     setModalVisible(false);
-    navigation.navigate('Login');
+    setHasCompletedWalkthrough(false);
+    // navigation.navigate('Login');
   };
 
   // When user clicks on 'Let's Start' button
@@ -54,12 +55,13 @@ const SliderWalkthrough = ({navigation}) => {
   return (
     <>
       {/* If user hasn't completed the walkthrough */}
+      {console.log(`line 58: ${modalVisible}`)}
       {hasCompletedWalkthrough ? (
-        // <DefaultModal
-        //   modalState={modalVisible}
-        //   buttonText={'עדכן גרסה'}
-        //   hideModal={hideModal}></DefaultModal>
-        <Button title="Login" onPress={hideModal} />
+        <DefaultModal
+          modalState={modalVisible}
+          buttonText={'עדכן גרסה'}
+          setModalVisible={setModalVisible}
+          hideModal={hideModal}></DefaultModal>
       ) : (
         <LinearGradient
           colors={['#A9333A', '#E1578A', '#FAE98F']}

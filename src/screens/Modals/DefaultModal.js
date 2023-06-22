@@ -8,13 +8,19 @@ import {
   Button,
   View,
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
-const DefaultModal = ({modalState, children, buttonText}) => {
-  // const [modalVisible, setModalVisible] = useState(false);
-  console.log(modalState);
-
-  const hideModal = () => {
-    setModalVisible(false);
+const DefaultModal = ({
+  modalState,
+  children,
+  buttonText,
+  hideModal,
+  setModalVisible,
+  navigation,
+}) => {
+  const closeModal = () => {
+    hideModal();
+    // navigation.navigate('Walkthrough');
   };
 
   return (
@@ -23,30 +29,43 @@ const DefaultModal = ({modalState, children, buttonText}) => {
         animationType="slide"
         transparent={true}
         visible={modalState}
-        onRequestClose={hideModal}>
-        {children}
+        onRequestClose={closeModal}>
+        <View>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>התחדשנו!</Text>
+            <Text style={styles.modalInnerText}>
+              על מנת להשתמש באפליקציה יש לעדכן את האפליקציה דרך חנות האפליקציות.
+            </Text>
+            <LinearGradient
+              colors={['#A9333A', '#E1578A', '#FAE98F']}
+              style={styles.gradient}
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 1}}>
+              <Pressable style={[styles.button]} onPress={closeModal}>
+                <Text style={styles.textStyle}>עדכן גרסה</Text>
+              </Pressable>
+            </LinearGradient>
+          </View>
+        </View>
       </Modal>
-      <Pressable style={[styles.button, styles.buttonOpen]} onPress={hideModal}>
-        <Text style={styles.textStyle}>{buttonText}</Text>
-      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   centeredView: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 22,
-    backgroundColor: 'blue',
-    borderWidth: 2,
+    flex: 1,
+    backgroundColor: 'white',
   },
   modalView: {
-    margin: 20,
+    marginTop: 120,
+    marginLeft: 45,
     backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
+    borderRadius: 50,
+    padding: 25,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -55,14 +74,13 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
+    width: 300,
     elevation: 5,
   },
   button: {
-    borderRadius: 20,
     padding: 10,
     width: 150,
-    height: 40,
-    elevation: 2,
+    height: 43,
   },
   buttonOpen: {
     backgroundColor: '#F194FF',
@@ -78,6 +96,15 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  modalInnerText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  gradient: {
+    borderRadius: 30,
   },
 });
 
