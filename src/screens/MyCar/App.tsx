@@ -19,12 +19,12 @@ import {
   Pressable,
   View,
 } from 'react-native';
-//import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 //import Ionicons from 'react-native-vector-icons/Ionicons';
-import HomeScreen from './HomeScreen.js';
-import NotificationsScreen from './NotificationsScreen.js';
+import HomeScreen from './components/HomeScreen.js';
+import NotificationsScreen from './components/NotificationsScreen.js';
 import {
   Colors,
   DebugInstructions,
@@ -32,20 +32,34 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
- 
+import DrawerContent from './components/DrawerContent' 
+import { TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import * as Font from 'expo-font';
+
+// ...imports
 
 const Drawer = createDrawerNavigator();
 function App(): JSX.Element {
   return (
     <NavigationContainer >
-      <Drawer.Navigator initialRouteName="Home" screenOptions={{drawerPosition: 'right'}} id="RightDrawer">
+      <Drawer.Navigator
+        drawerContent={(props) => <DrawerContent {...props} />
+      }
+        initialRouteName="Home"
+        screenOptions={{
+          drawerStyle: {
+          backgroundColor: 'transparent' 
+          },
+          drawerPosition: 'right',
+        }}
+      >
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
 }
-
 
 
 const windowsHight = Dimensions.get('window').height;
