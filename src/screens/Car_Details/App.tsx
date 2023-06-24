@@ -11,7 +11,7 @@ import {
     SafeAreaView,
 } from 'react-native';
 
-const CarDetailsScreen = () => {
+const App = () => {
     return(
         <SafeAreaView style={styles.Container}>
             <ScrollView>
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default CarDetailsScreen;
+export default App;

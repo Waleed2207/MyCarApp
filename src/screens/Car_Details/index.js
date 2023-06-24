@@ -1,3 +1,3 @@
-import CarDetailsScreen from './CarDetailsScreen';
+// import CarDetailsScreen from './CarDetailsScreen';
 
-export default CarDetailsScreen;
+// export default CarDetailsScreen;

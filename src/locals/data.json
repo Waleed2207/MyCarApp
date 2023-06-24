@@ -1,0 +1,11 @@
+{
+    "carType": "יונדאי איוניק 2022",
+    "carColor":"לבן פנינה",
+    "carNumber": "68224301",
+    "licensedDriver":["אביב שרון","אביב שרון","אביב שרון"],
+    "treatmentInterval":"ק''מ 15,000",
+    "gettingOnRoad":"אוגוסט 2022",
+    "tiresUp": "32-34",
+    "tiresDown":"32-34",
+    "instructionsMSG":["מילוי אוויר בגלגל","בדיקת שמן", "החלפת גלגל", "נוריות חיווי"]
+}
