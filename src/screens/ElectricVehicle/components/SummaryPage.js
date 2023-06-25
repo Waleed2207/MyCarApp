@@ -1,11 +1,21 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, Modal } from 'react-native';
 import TextBox from '../components/TextBox';
 import ChargerImage from '../components/ChargerImage';
 import ItemWithIcon from '../components/ItemWithIcon';
 import CustomButton from '../components/CustomButton';
 
 const SummaryPage = () => {
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContentContainer}>
@@ -43,17 +53,28 @@ const SummaryPage = () => {
                 <View style={styles.newSectionContent}>
                   <Text style={styles.newSectionHeadline}>לידיעך</Text>
                   <Text style={styles.newSectionText}>
-                    ניתן להתעדכן בכל רגע נתון בסטטוס הבקשה שלך ישירות מהאפליקציה דרך מסך סטטוס הקריאות
+                    ניתן להתעדכן בכל רגע נתון בסטטוס הבקשה שלך ישירות מהאפליקציה דרך מסך סטטוס הקריאות שלי.
                   </Text>
                 </View>
               </View>
               <View style={styles.buttonContainer}>
-                <CustomButton text="Submit" onPress={() => console.log('Button pressed!')} />
+                <CustomButton text="אישור ושליחה" onPress={openModal} />
               </View>
             </View>
           </View>
         </View>
       </ScrollView>
+
+      <Modal visible={isModalVisible} animationType="slide" transparent={true}>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalHeadline}>תודה</Text>
+            <Text style={styles.modalText}>קריאה נשלחה בהצלחה!</Text>
+            <CustomButton text="צפיה בסטטוס הקריאה" onPress={closeModal} />
+            <Text style={styles.modalLink}>אישור</Text>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -146,7 +167,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'center',
     backgroundColor: '#FFE37F',
-    borderRadius: 8,
+    borderRadius: 15,
     marginTop: 15,
     padding: 10,
   },
@@ -166,18 +187,47 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     color: 'black',
     textAlign: 'right',
-    marginRight: 15
+    marginRight: 15,
   },
   newSectionText: {
     color: 'gray',
     fontSize: 16,
     letterSpacing: 0.5,
     textAlign: 'right',
-    marginRight: 15
+    marginRight: 15,
   },
   buttonContainer: {
     marginTop: 25,
     alignSelf: 'center',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 16,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  modalHeadline: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    color: 'black',
+  },
+  modalText: {
+    fontSize: 16,
+    marginBottom: 16,
+    color: 'black',
+    textAlign: 'center',
+  },
+  modalLink: {
+    fontSize: 14,
+    color: 'blue',
+    textDecorationLine: 'underline',
   },
 });
 
